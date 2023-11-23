@@ -31,12 +31,17 @@ app.get('/', async (req, res) => {
   try {
     const response = await axios.get(`https://api.github.com/users/${defaultUsername}/repos`);
     const repositories = response.data.map(repo => ({
-      name: repo.name,
+           name: repo.name,
       url: repo.html_url,
       description: repo.description,
       language: repo.language,
       stargazersCount: repo.stargazers_count,
       forksCount: repo.forks_count,
+      homepage: repo.homepage,
+      sans: repo.license,
+      dil: repo.language,
+      eklenme: repo.created_at,
+      guncleme: repo.updated_at,
     }));
     res.render('index', { repositories, defaultUsername });
   } catch (error) {
