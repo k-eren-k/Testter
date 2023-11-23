@@ -29,11 +29,7 @@ app.get('/', async (req, res) => {
   const defaultUsername = 'DalgaGamePlay';
 
   try {
-    const response = await axios.get(`https://api.github.com/users/${defaultUsername}/repos`, {
-      headers: {
-        Authorization: `Bearer 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`,
-      },
-    });
+    const response = await axios.get(`https://api.github.com/users/${defaultUsername}/repos`);
     const repositories = response.data.map(repo => ({
       name: repo.name,
       url: repo.html_url,
@@ -41,11 +37,6 @@ app.get('/', async (req, res) => {
       language: repo.language,
       stargazersCount: repo.stargazers_count,
       forksCount: repo.forks_count,
-      homepage: repo.homepage,
-      sans: repo.license,
-      dil: repo.language,
-      eklenme: repo.created_at,
-      guncleme: repo.updated_at,
     }));
     res.render('index', { repositories, defaultUsername });
   } catch (error) {
@@ -53,6 +44,7 @@ app.get('/', async (req, res) => {
     res.render('index', { repositories: null, defaultUsername });
   }
 });
+
 
 app.listen(port, () => {
   console.log(`Sunucu ${port} portunda dinleniyor`);
