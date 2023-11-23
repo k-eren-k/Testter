@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs').promises;
-const axios = require('axios'); // Import axios for making HTTP requests
+const axios = require('axios'); 
 
 const app = express();
 const port = 3000;
@@ -16,7 +16,7 @@ app.use(async (req, res, next) => {
   try {
     const data = await fs.readFile(path.join(__dirname, 'lib', 'contact-links.json'), 'utf-8');
     const contactLinks = JSON.parse(data);
-    res.locals.contactLinks = contactLinks; // Make contactLinks available in EJS templates
+    res.locals.contactLinks = contactLinks; 
     next();
   } catch (error) {
     console.error('Error loading contact links:', error);
