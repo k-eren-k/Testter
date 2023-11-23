@@ -179,7 +179,6 @@ button:hover {
     margin-left: 5px;
 }
 
-/* Diğer stiller */
 
 @keyframes fade-in {
     from {
@@ -196,26 +195,18 @@ button:hover {
     margin-right: auto;
 }
 
-/* Add this style to your main.css or a separate stylesheet */
 .proje {
-    display: flex;
+    display: block;
     align-items: center;
     position: absolute;
-    /* Position it absolutely */
     top: 100vh;
-
-    /* Place it below the visible viewport */
     width: 100%;
-    /* Full width */
     background-color: #f0f0f0;
-    /* Set a background color or any other styles you want */
     padding: 20px;
-    /* Add padding for better visibility */
 }
 
 .proje.show {
     display: block;
-    /* Show the proje section when the 'show' class is added */
 }
 
 .proje {
@@ -226,7 +217,7 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     top: calc(100vh - 28);
@@ -234,7 +225,6 @@ button:hover {
     margin-right: 40px;
     background-color: transparent;
     z-index: 10;
-    /* data-[focus-visible=true] stil kurallarını ekleyin */
 }
 
 .all-proje[data-focus-visible=true]:z-10 {
@@ -260,7 +250,6 @@ button:hover {
     flex-direction: column;
     position: relative;
     overflow: hidden;
-
     margin-left: auto;
     margin-right: auto;
     height: auto;
@@ -270,24 +259,15 @@ button:hover {
     padding-right: 27px;
     padding-bottom: 02px;
     background: rgba(0, 0, 0, 0.5);
-
     outline: none;
-    /* data-[focus-visible=true] stil kurallarını ekleyin */
-
     border-radius: 5px;
-    /* İstediğiniz büyüklükte bir yuvarlak kenarlık ekleyin */
     transition: transform 0.3s, background 0.3s;
     transition: none;
-    /* motion-reduce:transition-none için uygun stil kurallarını ekleyin */
     z-index: 10;
     margin-top: 0.75rem;
-    /* İstediğiniz büyüklükte bir üst boşluk ekleyin */
     margin-bottom: 0.75rem;
-    /* İstediğiniz büyüklükte bir alt boşluk ekleyin */
     color: #fff;
-    /* Beyaz renk belirtin veya istediğiniz rengi kullanın */
     background-color: rgba(0, 0, 0, 0.5);
-    /* İstediğiniz opaklık düzeyini ayarlayın */
     user-select: none;
 }
 
@@ -311,26 +291,20 @@ button:hover {
     padding-bottom: 10px;
     height: auto;
     gap: 5px;
-    /* İstenilen boşluk değeri */
 }
 
 .top-in {
     display: flex;
     flex-direction: row;
-    /* Yatay düzenleme */
     flex-wrap: wrap;
-    /* Wrap özelliği eklendi */
     align-items: center;
-    /* İçindeki öğeleri dikey eksende ortala */
 }
 
 .top-in h1 {
     font-weight: 600;
     line-height: 1;
     font-size: 0.875rem;
-    /* Veya istediğiniz boyut */
     color: #D4D4D8;
-    /* Veya istediğiniz renk */
     font-weight: bold;
 
 }
@@ -338,7 +312,6 @@ button:hover {
 .top-in-bottom {
     display: flex;
     gap: 2px;
-    /* İstenilen boşluk değeri */
     align-items: center;
 }
 
@@ -424,12 +397,9 @@ button:hover {
     text-align: left;
     overflow-y: auto;
     font-size: 0.875rem;
-    /* Adjust font size as needed */
     color: #D4D4D2;
 }
 
-/* Proje container'ı */
-/* Styles for the project-bottom container */
 .project-bottom {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -437,7 +407,6 @@ button:hover {
     width: 100%;
 }
 
-/* Styles for the bottom-top container */
 .bottom-top {
     display: flex;
 
@@ -445,7 +414,6 @@ button:hover {
     width: 100%;
 }
 
-/* Styles for the lisans, launge, create, and update paragraphs */
 .lisans,
 .launge,
 .create,
