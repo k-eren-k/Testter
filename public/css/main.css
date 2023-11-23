@@ -28,7 +28,7 @@ body {
 
 img {
     max-width: 42%;
-    height: auto;
+    height: 60%;
     z-index: -10;
     position: fixed;
 }
