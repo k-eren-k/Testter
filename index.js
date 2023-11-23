@@ -3,10 +3,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs').promises;
 const axios = require('axios'); // Import axios for making HTTP requests
-const { Octokit } = require('@octokit/rest');
-const octokit = new Octokit({
-  auth: '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', // Replace with your GitHub personal access token
-});
 
 const app = express();
 const port = 3000;
@@ -35,7 +31,7 @@ app.get('/', async (req, res) => {
   try {
     const response = await axios.get(`https://api.github.com/users/${defaultUsername}/repos`, {
       headers: {
-        Authorization: `Bearer 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`,
+        Authorization: `Bearer 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`,
       },
     });
     const repositories = response.data.map(repo => ({
@@ -46,6 +42,10 @@ app.get('/', async (req, res) => {
       stargazersCount: repo.stargazers_count,
       forksCount: repo.forks_count,
       homepage: repo.homepage,
+      sans: repo.license,
+      dil: repo.language,
+      eklenme: repo.created_at,
+      guncleme: repo.updated_at,
     }));
     res.render('index', { repositories, defaultUsername });
   } catch (error) {
@@ -53,8 +53,6 @@ app.get('/', async (req, res) => {
     res.render('index', { repositories: null, defaultUsername });
   }
 });
-
-
 
 app.listen(port, () => {
   console.log(`Sunucu ${port} portunda dinleniyor`);
