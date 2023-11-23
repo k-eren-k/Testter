@@ -31,7 +31,7 @@ app.get('/', async (req, res) => {
   try {
     const response = await axios.get(`https://api.github.com/users/${defaultUsername}/repos`, {
       headers: {
-        Authorization: `Bearer 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`,
+        Authorization: `Bearer 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`,
       },
     });
     const repositories = response.data.map(repo => ({
