@@ -43,10 +43,10 @@ app.get('/', async (req, res) => {
       eklenme: repo.created_at,
       guncleme: repo.updated_at,
     }));
-    res.render('index', { repositories, defaultUsername });
+    res.render('main', { repositories, defaultUsername });
   } catch (error) {
     console.error('Error fetching GitHub repositories:', error);
-    res.render('index', { repositories: null, defaultUsername });
+    res.render('main', { repositories: null, defaultUsername });
   }
 });
 

@@ -1,0 +1,65 @@
+/* main.css */
+#scroll-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 13px;
+    cursor: pointer;width: 46px;
+    height: 46px;
+    box-sizing: border-box;
+    border-radius: 3.4px;    transition: transform 0.3s, background 0.3s;
+    user-select: none;
+    cursor: pointer;
+    display: none;
+  }
+  
+  #scroll-to-top-btn.active {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    cursor: pointer;
+    width: 46px;
+    height: 46px;
+    box-sizing: border-box;
+    border-radius: 3.4px;
+    transition: transform 0.3s, background 0.3s;
+    user-select: none;
+    cursor: pointer;
+    display: none;
+    animation: fadeIn 0.3s;
+    text-align: center;
+    line-height: 46px; /* Dikey ortalama */
+  }
+  
+  #scroll-to-top-btn.active:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  #scroll-to-top-btn.active p{
+   
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

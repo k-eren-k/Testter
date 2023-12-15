@@ -5,32 +5,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" />
+  
   <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/bar.css" />
+  <link rel="stylesheet" href="/css/about.css" />
+  <link rel="stylesheet" href="/css/proje.css" />
+  <link rel="stylesheet" href="/css/right-scroll.css" />
+
 </head>
 
 <body>
   <div class="bar" id="bar">
-    <a href="" id="van-a"> Blog </a>
-    <a href=""> Proje </a>
-    <a href="" id="the-a"> About </a>
+    <a href="#" id="proje-a" class="active"> Proje </a>
+    <a href="#" id="the-a" class="about-btn"> About </a>
   </div>
+  
 
- <img alt="Picture of the author"
-  fetchpriority="high" loading="eager" width="600" height="600" decoding="async"
-  data-nimg="1" class="flex justify-center items-center select-none fixed z--10 opacity-100"
-  style="color: transparent; max-width: 100%; height: auto;" 
-  src="https://www.sametcc.me/blobanimation.svg" />
+  <img alt="Picture of the author" fetchpriority="high" loading="eager" width="600" height="600" decoding="async"
+    data-nimg="1" class="flex justify-center items-center select-none fixed z--10 opacity-100"
+    style="color: transparent; max-width: 100%; height: auto;" src="https://www.sametcc.me/blobanimation.svg" />
 
   <p id="dynamicText">This is a centered paragraph on top of the image.</p>
   <div class="text-container">I'm a Web Developer from Turkey</div>
   <div class="button-container">
     <button><i class="fa-brands fa-discord"></i></button>
-    <button><i class="fa-brands fa-github-alt"></i></button>
-    <button><i class="fa-solid fa-at"></i></button>
-  </div>
+    <button><i class="fa-brands fa-github"></i></button>
+    <button><i class="fa-solid fa-envelope"></i></button>
+  </div><!-- index.html -->
+  <div id="scroll-to-top-btn"><p>&#8593;</p></div>
+  
 </body>
 
-<div class="proje">
+<div class="proje" >
   <% if (repositories !==null) { %>
     <ul>
       <% repositories.forEach(repo=> { %>
@@ -98,10 +104,18 @@
       <p>No repositories found for the given username.</p>
       <% } %>
 </div>
+<div class="about">
+  <li class="about-text">Hello, I'm Eren. I am 14 years old, I am in the first year of high school, and I aim to
+    progress in the field of web and become a software engineer. I use Node.js as a programming language and Express as
+    a framework. I also use React occasionally. You can check out my social media accounts for more information.</li>
 
+</div>
 <script src="/js/hello.js"></script>
 <script src="/js/date.js"></script>
 <script src="/js/scroll.js"></script>
+<script src="/js/bar.js"></script>
+<script src="/js/web.js"></script>
+<script src="/js/right-scroll.js"></script>
 
 <script>
 
