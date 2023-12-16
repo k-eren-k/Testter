@@ -7,10 +7,43 @@
   z-index: 99999;
   position: fixed;
   background: rgba(29, 29, 29, 0.801);
-  height: 46px;
+  height: 44.5px;
   width: 150px;
   border-radius: 5px;
 }
+
+@media only screen and (max-width: 600px) {
+  .bar.scrolled {
+    bottom: 12px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    left: 12px;
+    padding-right: 5px;
+    z-index: 99999;
+    position: fixed;
+    background: rgba(29, 29, 29, 0.801);
+    height: 44.5px;
+    width: 150px;
+    border-radius: 5px;
+  }
+
+  .bar {
+    bottom: 12px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    left: 12px;
+    padding-right: 5px;
+    z-index: 99999;
+    position: fixed;
+    background: rgba(29, 29, 29, 0.801);
+    height: 44.5px;
+    width: 150px;
+    border-radius: 5px;
+  }
+}
+
 .bar.scrolled a:hover {
   background: rgba(98, 98, 98, 0.25);
   color: #cfcfcf;
@@ -22,7 +55,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 36px;
+  height: 32px;
   width: 650px;
   border-radius: 5px;
 }
@@ -35,7 +68,7 @@
   z-index: 99999;
   position: fixed;
   background: rgba(0, 0, 0, 0.5);
-  height: 46px;
+  height: 44.5px;
   width: 150px;
   border-radius: 5px;
 }
@@ -46,13 +79,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 36px;
+  height: 34px;
   width: 650px;
   border-radius: 5px;
 }
 
 .bar a:hover {
-  background: rgba(29, 29, 29, 0.248);
+  background: rgba(56, 56, 56, 0.167);
   color: #e7e7e7;
 }
 .bar a.active {

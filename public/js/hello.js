@@ -97,13 +97,11 @@ const greetings = {
   "Oel ngati kameie": "Na'vi ",
   "Sul sul!": "Simlish ",
 };
+
+const textContainer = document.getElementById("dynamicText");
+let intervalId;
+
 function updateText() {
-  const textContainer = document.getElementById("dynamicText");
-  const randomIndex = Math.floor(Math.random() * greetings.length);
-  textContainer.textContent = greetings[randomIndex];
-}
-function updateText() {
-  const textContainer = document.getElementById("dynamicText");
   const randomIndex = Math.floor(Math.random() * Object.keys(greetings).length);
   const randomGreeting = Object.keys(greetings)[randomIndex];
   const language = greetings[randomGreeting];
@@ -112,5 +110,16 @@ function updateText() {
   textContainer.setAttribute("data-language", language);
 }
 
-updateText();
-setInterval(updateText, 1000);
+function toggleInterval() {
+  if (intervalId) {
+    clearInterval(intervalId);
+    intervalId = null;
+  } else {
+    updateText();
+    intervalId = setInterval(updateText, 1000);
+  }
+}
+
+toggleInterval();
+
+textContainer.addEventListener("click", toggleInterval);

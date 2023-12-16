@@ -68,8 +68,29 @@ p {
   font-style: normal;
   font-weight: 200;
   color: #fafafad7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   top: calc(50% + 19px);
+}
+.text-container a  {
+  height: auto;
+  width: auto;
+  margin-top: 4px;
+  cursor: pointer;
+  display: flex;
+  margin-left: 14px;
+  align-items: center;
+  justify-content: center;
+}
+.text-container a span {
+  text-align: center;
+  font-size: 12.3px;
+  font-style: normal;
+  font-weight: 200;
+  color: #fafafa;
+  position: absolute;
 }
 
 button {
@@ -77,18 +98,34 @@ button {
   height: 40px;
   font-size: 16px;
   background: rgba(0, 0, 0, 0.5);
-  font-size: 14.6px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #f5f5f5f0;
   border: none;
   border-radius: 5px;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
+button {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
 button:hover {
-  background: rgba(0, 0, 0, 0.338);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+
+button:hover {
+  background: rgba(0, 0, 0, 0.353);
   color: #fff;
 }
 
@@ -130,7 +167,6 @@ button:hover {
   animation: fade-in 0.1s ease-in-out;
 }
 
-/* Diğer stiller */
 
 #van-a {
   margin-right: 5px;
@@ -154,3 +190,62 @@ button:hover {
   margin-left: auto;
   margin-right: auto;
 }
+.navigate-button {
+    bottom: 12px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 99999;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+  height: 44px;
+    width: 34px;
+    right: 12px;
+    border-radius: 5px;
+}
+.navigate-button:hover {
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 99999;
+  position: fixed;
+  background: rgba(40, 40, 40, 0.5);
+height: 44px;
+  width: 34px;
+  right: 12px;
+  border-radius: 5px;
+}
+
+.navigate-button.clicked:hover {
+  background: rgba(43, 43, 43, 0.801);
+  color: #e6e6e6;
+
+  animation: float 1.5s ease-in-out;
+}
+.navigate-button i {
+  color: #BCBCBC;
+  font-size: 17.5px;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+}
+
+.navigate-button.clicked {
+  background: rgba(29, 29, 29, 0.801);
+  color: #e6e6e6;
+transition: all 0.0s ease;
+  animation: float 1.5s ease-in-out;
+}
+

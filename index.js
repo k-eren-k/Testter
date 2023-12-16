@@ -19,30 +19,37 @@ app.use(async (req, res, next) => {
     res.locals.contactLinks = contactLinks; // Make contactLinks available in EJS templates
     next();
   } catch (error) {
-    console.error('Error loading contact links:', error);
-    res.locals.contactLinks = {};
-    next();
+    console.error('Error fetching GitHub repositories:', error.response.status, error.response.statusText, error.response.data);
+    res.render('main', { repositories: null, defaultUsername });
   }
 });
+
+const githubToken = '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'; // Replace with your GitHub token
 
 app.get('/', async (req, res) => {
   const defaultUsername = 'k-eren-k';
 
   try {
-    const response = await axios.get(`https://api.github.com/users/${defaultUsername}/repos`);
+    const response = await axios.get(`https://api.github.com/users/${defaultUsername}/repos`, {
+      headers: {
+        Authorization: `Bearer ${githubToken}`,
+      },
+    });
+
     const repositories = response.data.map(repo => ({
-           name: repo.name,
+      name: repo.name,
       url: repo.html_url,
       description: repo.description,
       language: repo.language,
       stargazersCount: repo.stargazers_count,
       forksCount: repo.forks_count,
       homepage: repo.homepage,
-      sans: repo.license,
+      license: repo.license,
       dil: repo.language,
       eklenme: repo.created_at,
       guncleme: repo.updated_at,
     }));
+
     res.render('main', { repositories, defaultUsername });
   } catch (error) {
     console.error('Error fetching GitHub repositories:', error);
