@@ -26,7 +26,7 @@ app.use(async (req, res, next) => {
 });
 
 app.get('/', async (req, res) => {
-  const defaultUsername = 'sametcn99';
+  const defaultUsername = 'k-eren-k';
 
   try {
     const response = await axios.get(`https://api.github.com/users/${defaultUsername}/repos`);
