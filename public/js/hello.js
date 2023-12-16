@@ -27,7 +27,7 @@ const greetings = {
   "你好，世界": "Mandarin",
   "ওহে বিশ্ব": "Bengali ",
   "Xin chào thế giới": "Vietnamese ",
-  สวัสดีโลก: "Thai",
+  "สวัสดีโลก": "Thai",
   "שלום עולם": "Hebrew ",
   "Witaj, świecie": "Polish ",
   "Ahoj světe": "Czech ",
@@ -50,7 +50,7 @@ const greetings = {
   "Salve Mundi": "Latin ",
   "Χαῖρε κόσμε": "Ancient Greek ",
   "Hæll, heimur": "Old Norse ",
-  श्रीमद्विश्वम्: "Sanskrit",
+  "श्रीमद्विश्वम्": "Sanskrit",
   "ܫܠܡܐ ܡܬܚܐ ": "Aramaic",
   "Salutem Mundi": "Latin Vulgate ",
   "Heil, World": "Middle English",
@@ -97,13 +97,11 @@ const greetings = {
   "Oel ngati kameie": "Na'vi ",
   "Sul sul!": "Simlish ",
 };
+
+const textContainer = document.getElementById("dynamicText");
+let intervalId;
+
 function updateText() {
-  const textContainer = document.getElementById("dynamicText");
-  const randomIndex = Math.floor(Math.random() * greetings.length);
-  textContainer.textContent = greetings[randomIndex];
-}
-function updateText() {
-  const textContainer = document.getElementById("dynamicText");
   const randomIndex = Math.floor(Math.random() * Object.keys(greetings).length);
   const randomGreeting = Object.keys(greetings)[randomIndex];
   const language = greetings[randomGreeting];
@@ -112,5 +110,16 @@ function updateText() {
   textContainer.setAttribute("data-language", language);
 }
 
-updateText();
-setInterval(updateText, 1000);
+function toggleInterval() {
+  if (intervalId) {
+    clearInterval(intervalId);
+    intervalId = null;
+  } else {
+    updateText();
+    intervalId = setInterval(updateText, 1000);
+  }
+}
+
+toggleInterval();
+
+textContainer.addEventListener("click", toggleInterval);
