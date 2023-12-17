@@ -129,7 +129,10 @@
   justify-content: flex-end;
   align-items: center;
 }
-
+.button-container-get{
+  padding-left:10px;
+  padding-right:18px;
+}
 .button-container-get {
   position: relative;
   z-index: 0;
