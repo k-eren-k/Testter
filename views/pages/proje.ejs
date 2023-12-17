@@ -1,14 +1,5 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-  // Sayfa yüklendiğinde çalışacak kod
-  document.addEventListener("DOMContentLoaded", function() {
-    // "Open" butonuna tıklandığında
-    document.getElementById("openButton").addEventListener("click", function() {
-      // Dropdown menüyü göster veya gizle
-      document.getElementById("dropdownMenu").style.display = (document.getElementById("dropdownMenu").style.display === "none") ? "block" : "none";
-    });
-  });
-</script>
+
 
 
 <% if (repositories !==null) { %>
@@ -36,11 +27,23 @@
       <div class="top-right">
         <div class="flex-container">
           <div class="button-container-get">
-            <a target="_blank" class="button-get demo" id="openButton">Open</a>
-          
-    
+            <a target="_blank" href="<%= repo.homepage %>" class="button-get demo" id="openButton">Web</a>
           </div>
           
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              var openButton = document.getElementById("openButton");
+              var homepageLink = "<%= repo.homepage %>"; 
+          
+              if (!homepageLink || homepageLink.trim() === "") {
+                openButton.style.textDecoration = "line-through";
+                openButton.href = "#"; 
+              }
+            });
+          </script>
+          <div class="button-container-get">
+            <a target="_blank" href="<%= repo.url %>" class="button-get demo" id="openButton">Source</a>
+          </div>
         
         </div>
       </div>
