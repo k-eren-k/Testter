@@ -210,19 +210,13 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  appearance: none;
-  padding-right:9px;
   cursor: pointer;
   outline: none;
   margin-left: 5px;
   color: #e8e8e8;
-  padding-left: 18px;
-  padding-right: 18px;
 
-  min-width: 16px;
   height: 40px;
   font-size: 0.625rem;
-  gap: 2px;
   border: 1px solid #8a898fa0;
   border-radius: 4.2px;
   transition: background-opacity 1s, color 1s;
@@ -234,13 +228,6 @@
   color: #fff;
 }
 
-.button-get svg {
-  width: 1rem;
-  height: 1rem;
-  fill: #fff;
-  margin-left: 2px;
-  margin-right: 8px;
-}
 
 .button-get.demo:hover {
   background: rgba(0, 0, 0, 0.5);
