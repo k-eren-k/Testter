@@ -10,7 +10,27 @@
 <meta http-equiv="content-language" content="tr">
 <meta name="robots" content="index,nofollow">
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859">
+<style>
+.snowflake {
+  position: fixed;
+  background: #fff; /* Snowflake color */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.8;
+  animation: snowfall linear infinite;
+}
 
+@keyframes snowfall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+</style>
 
 
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" />
