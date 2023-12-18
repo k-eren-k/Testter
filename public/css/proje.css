@@ -211,6 +211,7 @@
   justify-content: center;
   box-sizing: border-box;
   appearance: none;
+  padding-right:9px;
   cursor: pointer;
   outline: none;
   margin-left: 5px;
