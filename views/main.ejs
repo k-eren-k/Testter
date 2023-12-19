@@ -4,6 +4,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<META name="Copyright" content="Bütün Hakları ES DEV Tarafıdan Saklıdır!">
+<meta name="description" content="My Portfolio Web Site">
+<meta name="keywords" content="eren erkoo portfolio modern web">
+<meta http-equiv="content-language" content="tr">
+<meta name="robots" content="index,nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859">
+<style>
+
+
+
+
+
+
+.snowflake {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle at 30% 40%, #fff, transparent 50%, #fff 70%); /* Gradient for a 3D effect */
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1000;
+      animation: snowfall linear infinite, spin linear infinite, fadeIn linear 0.5s;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Add a subtle shadow for a 3D effect */
+      transform-origin: center; /* Set the rotation origin to the center of the snowflake */
+      animation-duration: calc(var(--size) * 0.1s + 1s); /* Vary animation duration based on size */
+    }
+
+    @keyframes snowfall {
+      to {
+        transform: translateY(90vh) rotateZ(360deg); /* Adjusted to stop at 90vh */
+      }
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10vh); /* Offset for a subtle parallax effect */
+      }
+      to {
+        opacity: 0.8;
+        transform: translateY(0);
+      }
+    }
+
+
+
+
+
+
+
+</style>
+
+
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -57,11 +119,39 @@
   <script src="/js/web.js"></script>
   <script src="/js/right-scroll.js"></script>
   <script src="/js/translate.js"></script>
+  <script src="/js/snow.js"></script>
 
   <script></script>
 </body>
 <div id="navigate-button" class="navigate-button">
   <i class="fa-light fa-chevron-up"></i>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const snowflakesContainer = document.body;
 
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.className = 'snowflake';
+      const size = Math.random() * 5 + 5; // Random size between 5 and 10 pixels
+      snowflake.style.width = `${size}px`;
+      snowflake.style.height = `${size}px`;
+      snowflake.style.left = `${Math.random() * window.innerWidth}px`; // Random horizontal position
+      snowflake.style.top = `-${Math.random() * window.innerHeight}px`; // Start above the viewport
+      snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`; // Random falling speed
+
+      snowflakesContainer.appendChild(snowflake);
+
+      snowflake.addEventListener('animationiteration', () => {
+        snowflake.remove(); // Remove the snowflake when it reaches the bottom
+        createSnowflake(); // Create a new snowflake
+      });
+    }
+
+    // Create initial snowflakes
+    for (let i = 0; i < 20; i++) {
+      createSnowflake();
+    }
+  });
+</script>
 </html>
