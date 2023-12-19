@@ -3,6 +3,9 @@
 * {
   font-family: "Inter", sans-serif;
 }
+html, body {
+  scroll-behavior: slow; /* Alternatif olarak 'smooth' değeri de kullanılabilir */
+}
 
 body {
   background: rgb(246, 246, 246);
