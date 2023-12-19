@@ -14,19 +14,3 @@ document.addEventListener("DOMContentLoaded", function () {
     lastScrollTop = scrollTop;
   });
 });
-  document.addEventListener("DOMContentLoaded", function() {
-    var scrollSpeed = 30; // Ayarlanabilir hız değeri
-
-    function scrollStep() {
-      if (window.scrollY === 0) {
-        clearInterval(scrollInterval);
-      }
-      window.scrollBy(0, -scrollSpeed);
-    }
-
-    function slowScroll() {
-      scrollInterval = setInterval(scrollStep, 15);
-    }
-
-    document.addEventListener("mousewheel", slowScroll, false);
-  });
