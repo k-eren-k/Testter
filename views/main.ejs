@@ -12,59 +12,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859">
 <style>
 
-
-
-
-
-
-.snowflake {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background: radial-gradient(circle at 30% 40%, #fff, transparent 50%, #fff 70%); /* Gradient for a 3D effect */
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 1000;
-      animation: snowfall linear infinite, spin linear infinite, fadeIn linear 0.5s;
-      box-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Add a subtle shadow for a 3D effect */
-      transform-origin: center; /* Set the rotation origin to the center of the snowflake */
-      animation-duration: calc(var(--size) * 0.1s + 1s); /* Vary animation duration based on size */
+@keyframes snowfall {
+    to {
+      transform: translateY(100vh);
     }
+  }
 
-    @keyframes snowfall {
-      to {
-        transform: translateY(90vh) rotateZ(360deg); /* Adjusted to stop at 90vh */
-      }
-    }
-
-    @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10vh); /* Offset for a subtle parallax effect */
-      }
-      to {
-        opacity: 0.8;
-        transform: translateY(0);
-      }
-    }
-
-
-
-
-
-
-
+  .snowflake {
+    position: fixed;
+    background: #fff; /* Snowflake color */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.8;
+    animation: snowfall linear infinite;
+  }
 </style>
-
+<div id="snowfall"></div>
 
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" />
   <link rel="stylesheet"
@@ -104,8 +68,7 @@
 
 
   <div class="button-container">
-    <a href="discord.com/users/1033759126901227522id
-"></a><button><i class="fa-brands fa-discord"></i></button>
+    <button><i class="fa-brands fa-discord"></i></button>
     <button><i class="fa-brands fa-github"></i></button>
     <button><i class="fa-solid fa-envelope"></i></button>
   </div>
@@ -126,7 +89,9 @@
 </body>
 <div id="navigate-button" class="navigate-button">
   <i class="fa-light fa-chevron-up"></i>
-</div>
+</div>    
+<!-- Add this to the end of your HTML file -->
+<!-- Add this to the end of your HTML file -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const snowflakesContainer = document.body;
@@ -134,18 +99,24 @@
     function createSnowflake() {
       const snowflake = document.createElement('div');
       snowflake.className = 'snowflake';
-      const size = Math.random() * 5 + 5; // Random size between 5 and 10 pixels
+      const size = Math.random() * 8 + 3.8; // Random size between 3.8 and 11.8
       snowflake.style.width = `${size}px`;
       snowflake.style.height = `${size}px`;
       snowflake.style.left = `${Math.random() * window.innerWidth}px`; // Random horizontal position
       snowflake.style.top = `-${Math.random() * window.innerHeight}px`; // Start above the viewport
-      snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`; // Random falling speed
+      snowflake.style.animationDuration = `${Math.random() * 4 + 3}s`; // Random falling speed
+      snowflake.style.zIndex = Math.floor(Math.random() * 3); // Random z-index (for layering)
+
+      // Set opacity based on size
+      snowflake.style.opacity = size < 6 ? Math.random() * 0.5 + 0.3 : 1; // Reduce opacity for smaller snowflakes
 
       snowflakesContainer.appendChild(snowflake);
 
       snowflake.addEventListener('animationiteration', () => {
-        snowflake.remove(); // Remove the snowflake when it reaches the bottom
-        createSnowflake(); // Create a new snowflake
+        const snowflakeRect = snowflake.getBoundingClientRect();
+        if (snowflakeRect.bottom > window.innerHeight) {
+          snowflake.remove(); // Remove the snowflake when it reaches the bottom of the viewport
+        }
       });
     }
 
@@ -155,4 +126,8 @@
     }
   });
 </script>
+
+
+
+
 </html>
